@@ -47,7 +47,7 @@ export default function Header() {
                         className="profile-button"
                         aria-label="장바구니"
                     >
-                        👤
+                        🛒
                         {cartCount > 0 && (
                             <span className="cart-count-badge">
                                 {cartCount}
