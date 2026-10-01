@@ -1,6 +1,10 @@
 import IngredientCard from "./IngredientCard";
 
-export default function IngredientList({ ingredients, onUpdateQuantity, onDelete }) {
+export default function IngredientList({
+    ingredients,
+    onUpdateQuantity,
+    onDelete,
+}) {
     if (ingredients.length === 0) {
         return (
             <div className="empty-state">
@@ -11,9 +15,22 @@ export default function IngredientList({ ingredients, onUpdateQuantity, onDelete
         );
     }
 
+    const sortedIngredients = [...ingredients].sort((a, b) => {
+        // 소비기한이 없는 경우 맨 뒤로
+        if (!a.expirationDate) return 1;
+        if (!b.expirationDate) return -1;
+
+        // 소비기한이 같은 경우 이름순 정렬
+        if (a.expirationDate === b.expirationDate) {
+            return a.name.localeCompare(b.name);
+        }
+
+        return new Date(a.expirationDate) - new Date(b.expirationDate);
+    });
+
     return (
         <div className="ingredient-grid">
-            {ingredients.map((ingredient) => (
+            {sortedIngredients.map((ingredient) => (
                 <IngredientCard
                     key={ingredient.id}
                     ingredient={ingredient}
