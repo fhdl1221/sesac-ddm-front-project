@@ -17,19 +17,80 @@ const unitLabels = {
 
 function getIngredientEmoji(name) {
     const lowerName = name.toLowerCase();
+
+    // 유제품
     if (lowerName.includes("egg")) return "🥚";
-    if (lowerName.includes("tomato")) return "🍅";
-    if (lowerName.includes("chicken")) return "🍗";
-    if (lowerName.includes("onion")) return "🧅";
     if (lowerName.includes("milk")) return "🥛";
+    if (lowerName.includes("cheese")) return "🧀";
+    if (lowerName.includes("butter") || lowerName.includes("margarine")) return "🧈";
+
+    // 고기류
+    if (lowerName.includes("chicken") || lowerName.includes("poultry")) return "🍗";
+    if (lowerName.includes("beef") || lowerName.includes("steak") || lowerName.includes("meat")) return "🥩";
+    if (lowerName.includes("pork") || lowerName.includes("bacon")) return "🥓";
+    if (lowerName.includes("ham") || lowerName.includes("sausage")) return "🌭";
+
+    // 해산물
+    if (lowerName.includes("fish") || lowerName.includes("salmon") || lowerName.includes("tuna")) return "🐟";
+    if (lowerName.includes("shrimp") || lowerName.includes("prawn")) return "🍤";
+    if (lowerName.includes("crab")) return "🦀";
+    if (lowerName.includes("squid") || lowerName.includes("octopus")) return "🦑";
+    if (lowerName.includes("lobster")) return "🦞";
+    if (lowerName.includes("oyster") || lowerName.includes("clam")) return "🦪";
+
+    // 채소류
+    if (lowerName.includes("tomato")) return "🍅";
+    if (lowerName.includes("onion")) return "🧅";
     if (lowerName.includes("potato")) return "🥔";
     if (lowerName.includes("carrot")) return "🥕";
+    if (lowerName.includes("garlic")) return "🧄";
+    if (lowerName.includes("broccoli")) return "🥦";
+    if (lowerName.includes("cucumber")) return "🥒";
+    if (lowerName.includes("corn")) return "🌽";
+    if (lowerName.includes("mushroom")) return "🍄";
+    if (lowerName.includes("pepper") || lowerName.includes("chili")) return "🌶️";
+    if (lowerName.includes("bell pepper") || lowerName.includes("paprika")) return "🫑";
+    if (lowerName.includes("eggplant")) return "🍆";
+    if (lowerName.includes("sweet potato")) return "🍠";
+    if (lowerName.includes("cabbage") || lowerName.includes("lettuce")) return "🥬";
+    if (lowerName.includes("avocado")) return "🥑";
+    if (lowerName.includes("pea")) return "🫛";
+    if (lowerName.includes("bean") || lowerName.includes("soy")) return "🫘";
+
+    // 과일류
     if (lowerName.includes("apple")) return "🍎";
     if (lowerName.includes("banana")) return "🍌";
-    if (lowerName.includes("beef")) return "🥩";
-    if (lowerName.includes("pork")) return "🥓";
-    if (lowerName.includes("fish")) return "🐟";
-    return "🥬";
+    if (lowerName.includes("orange") || lowerName.includes("tangerine")) return "🍊";
+    if (lowerName.includes("lemon") || lowerName.includes("lime")) return "🍋";
+    if (lowerName.includes("strawberry")) return "🍓";
+    if (lowerName.includes("grape")) return "🍇";
+    if (lowerName.includes("watermelon")) return "🍉";
+    if (lowerName.includes("melon")) return "🍈";
+    if (lowerName.includes("peach")) return "🍑";
+    if (lowerName.includes("cherry")) return "🍒";
+    if (lowerName.includes("pineapple")) return "🍍";
+    if (lowerName.includes("mango")) return "🥭";
+    if (lowerName.includes("kiwi")) return "🥝";
+    if (lowerName.includes("pear")) return "🍐";
+    if (lowerName.includes("blueberry") || lowerName.includes("berry")) return "🫐";
+    if (lowerName.includes("coconut")) return "🥥";
+
+    // 곡물/탄수화물 
+    if (lowerName.includes("bread") || lowerName.includes("toast")) return "🍞";
+    if (lowerName.includes("rice")) return "🍚";
+    if (lowerName.includes("noodle") || lowerName.includes("ramen")) return "🍜";
+    if (lowerName.includes("pasta") || lowerName.includes("spaghetti")) return "🍝";
+    if (lowerName.includes("flour") || lowerName.includes("wheat")) return "🌾";
+
+    // 양념 및 기타
+    if (lowerName.includes("salt") || lowerName.includes("sugar") || lowerName.includes("powder")) return "🧂";
+    if (lowerName.includes("honey")) return "🍯";
+    if (lowerName.includes("oil") || lowerName.includes("olive")) return "🫒";
+    if (lowerName.includes("sauce") || lowerName.includes("ketchup") || lowerName.includes("paste")) return "🥫";
+    if (lowerName.includes("chocolate") || lowerName.includes("cacao")) return "🍫";
+    if (lowerName.includes("ice")) return "🧊"; 
+
+    return "🥣";
 }
 
 export default function IngredientCard({
