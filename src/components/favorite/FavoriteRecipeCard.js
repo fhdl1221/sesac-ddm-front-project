@@ -1,4 +1,3 @@
-// components/favorite/FavoriteRecipeCard.js
 "use client";
 import Link from "next/link";
 import { useFridgeStore } from "@/store/useFridgeStore";

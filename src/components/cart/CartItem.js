@@ -7,7 +7,6 @@ export default function CartItem({ ingredient }) {
 
     return (
         <div className="cart-item">
-            {/* 👇 flex: 1 속성이 있는 클래스를 추가하여 버튼을 우측 끝으로 밀어냅니다. */}
             <div className="cart-item-info">
                 <strong>{ingredient.name}</strong>
                 <p>
@@ -16,7 +15,7 @@ export default function CartItem({ ingredient }) {
             </div>
             <button
                 type="button"
-                className="cart-delete-button" /* 👇 스타일 적용을 위한 클래스 추가 */
+                className="cart-delete-button" 
                 onClick={() => {
                     removeFromCart(ingredient.name);
                 }}
