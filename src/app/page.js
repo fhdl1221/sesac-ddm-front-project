@@ -7,12 +7,10 @@ import {
     getIngredients,
     updateIngredient,
 } from "@/lib/fridgeApi";
-import { getExpirationInfo } from "@/lib/dateUtils";
 import useStoreHydration from "@/store/useStoreHydration";
 import IngredientForm from "@/components/fridge/IngredientForm";
 import IngredientList from "@/components/fridge/IngredientList";
 import StorageTabs from "@/components/fridge/StorageTabs";
-import ExpirationNotice from "@/components/fridge/ExpirationNotice";
 
 export default function Home() {
     const [ingredients, setIngredients] = useState([]);
@@ -20,7 +18,7 @@ export default function Home() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
 
-    const hasHydrated = useStoreHydration();
+    useStoreHydration();
 
     const loadIngredients = async () => {
         setIsLoading(true);
@@ -40,18 +38,11 @@ export default function Home() {
         loadIngredients();
     }, []);
 
-    // TODO 4: onAddIngredient을 작성하세요.
-    // createIngredient()를 호출한 후 loadIngredients()로 목록을 다시 가져오세요.
     const handleAddIngredient = async (ingredient) => {
         await createIngredient(ingredient);
         await loadIngredients();
     };
 
-    // TODO 5: onUpdateQuantity를 작성하세요.
-    // 1) ingredients에서 id로 기존 재료 찾기
-    // 2) amount를 더하고 최소 1로 제한
-    // 3) updateIngredient(id, { quantity: newQuantity })
-    // 4) loadIngredients()
     const handleUpdateQuantity = async (id, amount) => {
         const ingredient = ingredients.find(
             (item) => Number(item.id) === Number(id),
@@ -59,7 +50,16 @@ export default function Home() {
 
         if (!ingredient) return;
 
-        const newQuantity = Math.max(1, Number(ingredient.quantity) + amount);
+        let minQuantity = 1;
+        if (ingredient.unit === "g" || ingredient.unit === "ml")
+            minQuantity = 50;
+        else if (ingredient.unit === "kg" || ingredient.unit === "L")
+            minQuantity = 0.5;
+
+        const newQuantity = Math.max(
+            minQuantity,
+            Number(ingredient.quantity) + amount,
+        );
 
         await updateIngredient(id, {
             quantity: newQuantity,
@@ -68,8 +68,6 @@ export default function Home() {
         await loadIngredients();
     };
 
-    // TODO 6: onDelete를 작성하세요.
-    // confirm → deleteIngredient(id) → loadIngredients()
     const handleDelete = async (id) => {
         const ingredient = ingredients.find(
             (item) => Number(item.id) === Number(id),
@@ -87,7 +85,6 @@ export default function Home() {
         await loadIngredients();
     };
 
-    // TODO 7: selectedStorage가 all이면 전체, 아니면 storage로 filter하세요.
     const filteredIngredients =
         selectedStorage === "all"
             ? ingredients

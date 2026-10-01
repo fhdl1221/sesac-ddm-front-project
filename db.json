@@ -3,7 +3,7 @@
     {
       "name": "egg",
       "storage": "refrigerator",
-      "quantity": 11,
+      "quantity": 13,
       "unit": "ea",
       "expirationDate": "2026-10-06",
       "id": 1
@@ -11,7 +11,7 @@
     {
       "name": "tomato",
       "storage": "refrigerator",
-      "quantity": 1,
+      "quantity": 2,
       "unit": "kg",
       "expirationDate": "",
       "id": 2
@@ -27,7 +27,7 @@
     {
       "name": "milk",
       "storage": "refrigerator",
-      "quantity": 1,
+      "quantity": 2.5,
       "unit": "L",
       "expirationDate": "2026-10-03",
       "id": 4
@@ -35,7 +35,7 @@
     {
       "name": "carrot",
       "storage": "room",
-      "quantity": 500,
+      "quantity": 600,
       "unit": "g",
       "expirationDate": "",
       "id": 5

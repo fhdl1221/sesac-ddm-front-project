@@ -22,19 +22,33 @@ function getIngredientEmoji(name) {
     if (lowerName.includes("egg")) return "🥚";
     if (lowerName.includes("milk")) return "🥛";
     if (lowerName.includes("cheese")) return "🧀";
-    if (lowerName.includes("butter") || lowerName.includes("margarine")) return "🧈";
+    if (lowerName.includes("butter") || lowerName.includes("margarine"))
+        return "🧈";
 
     // 고기류
-    if (lowerName.includes("chicken") || lowerName.includes("poultry")) return "🍗";
-    if (lowerName.includes("beef") || lowerName.includes("steak") || lowerName.includes("meat")) return "🥩";
+    if (lowerName.includes("chicken") || lowerName.includes("poultry"))
+        return "🍗";
+    if (
+        lowerName.includes("beef") ||
+        lowerName.includes("steak") ||
+        lowerName.includes("meat")
+    )
+        return "🥩";
     if (lowerName.includes("pork") || lowerName.includes("bacon")) return "🥓";
     if (lowerName.includes("ham") || lowerName.includes("sausage")) return "🌭";
 
     // 해산물
-    if (lowerName.includes("fish") || lowerName.includes("salmon") || lowerName.includes("tuna")) return "🐟";
-    if (lowerName.includes("shrimp") || lowerName.includes("prawn")) return "🍤";
+    if (
+        lowerName.includes("fish") ||
+        lowerName.includes("salmon") ||
+        lowerName.includes("tuna")
+    )
+        return "🐟";
+    if (lowerName.includes("shrimp") || lowerName.includes("prawn"))
+        return "🍤";
     if (lowerName.includes("crab")) return "🦀";
-    if (lowerName.includes("squid") || lowerName.includes("octopus")) return "🦑";
+    if (lowerName.includes("squid") || lowerName.includes("octopus"))
+        return "🦑";
     if (lowerName.includes("lobster")) return "🦞";
     if (lowerName.includes("oyster") || lowerName.includes("clam")) return "🦪";
 
@@ -48,11 +62,14 @@ function getIngredientEmoji(name) {
     if (lowerName.includes("cucumber")) return "🥒";
     if (lowerName.includes("corn")) return "🌽";
     if (lowerName.includes("mushroom")) return "🍄";
-    if (lowerName.includes("pepper") || lowerName.includes("chili")) return "🌶️";
-    if (lowerName.includes("bell pepper") || lowerName.includes("paprika")) return "🫑";
+    if (lowerName.includes("pepper") || lowerName.includes("chili"))
+        return "🌶️";
+    if (lowerName.includes("bell pepper") || lowerName.includes("paprika"))
+        return "🫑";
     if (lowerName.includes("eggplant")) return "🍆";
     if (lowerName.includes("sweet potato")) return "🍠";
-    if (lowerName.includes("cabbage") || lowerName.includes("lettuce")) return "🥬";
+    if (lowerName.includes("cabbage") || lowerName.includes("lettuce"))
+        return "🥬";
     if (lowerName.includes("avocado")) return "🥑";
     if (lowerName.includes("pea")) return "🫛";
     if (lowerName.includes("bean") || lowerName.includes("soy")) return "🫘";
@@ -60,7 +77,8 @@ function getIngredientEmoji(name) {
     // 과일류
     if (lowerName.includes("apple")) return "🍎";
     if (lowerName.includes("banana")) return "🍌";
-    if (lowerName.includes("orange") || lowerName.includes("tangerine")) return "🍊";
+    if (lowerName.includes("orange") || lowerName.includes("tangerine"))
+        return "🍊";
     if (lowerName.includes("lemon") || lowerName.includes("lime")) return "🍋";
     if (lowerName.includes("strawberry")) return "🍓";
     if (lowerName.includes("grape")) return "🍇";
@@ -72,25 +90,45 @@ function getIngredientEmoji(name) {
     if (lowerName.includes("mango")) return "🥭";
     if (lowerName.includes("kiwi")) return "🥝";
     if (lowerName.includes("pear")) return "🍐";
-    if (lowerName.includes("blueberry") || lowerName.includes("berry")) return "🫐";
+    if (lowerName.includes("blueberry") || lowerName.includes("berry"))
+        return "🫐";
     if (lowerName.includes("coconut")) return "🥥";
 
-    // 곡물/탄수화물 
+    // 곡물/탄수화물
     if (lowerName.includes("bread") || lowerName.includes("toast")) return "🍞";
     if (lowerName.includes("rice")) return "🍚";
-    if (lowerName.includes("noodle") || lowerName.includes("ramen")) return "🍜";
-    if (lowerName.includes("pasta") || lowerName.includes("spaghetti")) return "🍝";
+    if (lowerName.includes("noodle") || lowerName.includes("ramen"))
+        return "🍜";
+    if (lowerName.includes("pasta") || lowerName.includes("spaghetti"))
+        return "🍝";
     if (lowerName.includes("flour") || lowerName.includes("wheat")) return "🌾";
 
     // 양념 및 기타
-    if (lowerName.includes("salt") || lowerName.includes("sugar") || lowerName.includes("powder")) return "🧂";
+    if (
+        lowerName.includes("salt") ||
+        lowerName.includes("sugar") ||
+        lowerName.includes("powder")
+    )
+        return "🧂";
     if (lowerName.includes("honey")) return "🍯";
     if (lowerName.includes("oil") || lowerName.includes("olive")) return "🫒";
-    if (lowerName.includes("sauce") || lowerName.includes("ketchup") || lowerName.includes("paste")) return "🥫";
-    if (lowerName.includes("chocolate") || lowerName.includes("cacao")) return "🍫";
-    if (lowerName.includes("ice")) return "🧊"; 
+    if (
+        lowerName.includes("sauce") ||
+        lowerName.includes("ketchup") ||
+        lowerName.includes("paste")
+    )
+        return "🥫";
+    if (lowerName.includes("chocolate") || lowerName.includes("cacao"))
+        return "🍫";
+    if (lowerName.includes("ice")) return "🧊";
 
     return "🥣";
+}
+
+function getQuantityStep(unit) {
+    if (unit === "g" || unit === "ml") return 50;
+    if (unit === "kg" || unit === "L") return 0.5;
+    return 1;
 }
 
 export default function IngredientCard({
@@ -99,6 +137,7 @@ export default function IngredientCard({
     onDelete,
 }) {
     const expirationInfo = getExpirationInfo(ingredient.expirationDate);
+    const step = getQuantityStep(ingredient.unit);
 
     return (
         <article className="ingredient-card">
@@ -146,9 +185,9 @@ export default function IngredientCard({
             <div className="quantity-control">
                 <button
                     type="button"
-                    disabled={ingredient.quantity <= 1}
+                    disabled={Number(ingredient.quantity) <= step}
                     onClick={() => {
-                        onUpdateQuantity(ingredient.id, -1);
+                        onUpdateQuantity(ingredient.id, -step);
                     }}
                 >
                     -
@@ -160,7 +199,7 @@ export default function IngredientCard({
                 <button
                     type="button"
                     onClick={() => {
-                        onUpdateQuantity(ingredient.id, 1);
+                        onUpdateQuantity(ingredient.id, step);
                     }}
                 >
                     +
