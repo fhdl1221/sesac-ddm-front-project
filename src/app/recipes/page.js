@@ -7,7 +7,6 @@ import RecipeGrid from "@/components/recipe/RecipeGrid";
 
 export default function RecipesPage() {
     const [recipes, setRecipes] = useState([]);
-    const [time, setTime] = useState("");
     const [ingredientCount, setIngredientCount] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");

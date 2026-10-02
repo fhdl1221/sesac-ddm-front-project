@@ -1,5 +1,4 @@
 export function getDaysUntilExpiration(expirationDate) {
-    // TODO
     const today = new Date(`${getTodayString()}T00:00:00`);
     const expiration = new Date(`${expirationDate}T00:00:00`);
 
@@ -13,7 +12,6 @@ export function getDaysUntilExpiration(expirationDate) {
 }
 
 export function getExpirationInfo(expirationDate) {
-    // TODO
     const leftDay = getDaysUntilExpiration(expirationDate);
 
     if (leftDay === null) {
